@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oficina de Impacto</title>
+<meta name="description" content="Guia interativo de 14 etapas: do problema socioambiental ao site publicado. Gera o codigo do projeto do aluno a partir dos campos que ele definir.">
+<meta name="theme-color" content="#0F3D4C">
+<meta property="og:title" content="Oficina de Impacto">
+<meta property="og:description" content="Do problema socioambiental ao site publicado, em 14 etapas.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F3D4C'/%3E%3Cpath d='M7 16.5l6 6 12-12' stroke='%23E39A10' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Karla:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-inner">
+    <button class="botao-menu" id="abrirRail" aria-expanded="false" aria-controls="rail">Etapas</button>
+    <span class="marca">Oficina de Impacto</span>
+    <div class="topo-medidor"><div class="medidor"><i id="barra"></i></div></div>
+    <span class="topo-conta"><span id="feitos">0</span>/14 etapas</span>
+    <button class="tema" id="btnTema" type="button">Tema</button>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="rail" id="rail" aria-label="Lista de etapas">
+    <button class="fechar-rail" id="fecharRail" type="button">Fechar</button>
+    <p class="rail-titulo">Parte 1: planejar</p>
+    <ol>
+      <li><a href="#e1"><span class="rail-num">1</span> Empreender é resolver</a></li>
+      <li><a href="#e2"><span class="rail-num">2</span> Achar um problema real</a></li>
+      <li><a href="#e3"><span class="rail-num">3</span> ODS e Canvas de Impacto</a></li>
+      <li><a href="#e4"><span class="rail-num">4</span> Teoria da Mudança</a></li>
+      <li><a href="#e5"><span class="rail-num">5</span> O que o site vai guardar</a></li>
+    </ol>
+    <p class="rail-titulo">Parte 2: construir</p>
+    <ol>
+      <li><a href="#e6"><span class="rail-num">6</span> Preparar o computador</a></li>
+      <li><a href="#e7"><span class="rail-num">7</span> Os três arquivos</a></li>
+      <li><a href="#e8"><span class="rail-num">8</span> Falar com a IA</a></li>
+      <li><a href="#e9"><span class="rail-num">9</span> Montar o HTML</a></li>
+      <li><a href="#e10"><span class="rail-num">10</span> Montar o CSS</a></li>
+      <li><a href="#e11"><span class="rail-num">11</span> Salvar os dados</a></li>
+      <li><a href="#e12"><span class="rail-num">12</span> Suas fotos</a></li>
+    </ol>
+    <p class="rail-titulo">Parte 3: entregar</p>
+    <ol>
+      <li><a href="#e13"><span class="rail-num">13</span> Testar tudo</a></li>
+      <li><a href="#e14"><span class="rail-num">14</span> Publicar e apresentar</a></li>
+    </ol>
+    <p class="rail-titulo">Apoio</p>
+    <ol>
+      <li><a href="#socorro"><span class="rail-num">?</span> Socorro: deu erro</a></li>
+      <li><a href="#entrega"><span class="rail-num">✓</span> Ficha de entrega</a></li>
+    </ol>
+  </nav>
+
+  <main class="conteudo">
+
+    <section class="abertura">
+      <h1>Escolha um problema<em>e entregue a solução no ar.</em></h1>
+      <p class="linha">Catorze etapas. Você começa olhando para a sua rua e termina com um sistema publicado na internet, com um link que funciona no celular de qualquer pessoa. Nunca programou? Melhor ainda: esta página escreve o código do seu projeto para você.</p>
+      <div class="entrega">
+        <div><b>Um problema real</b><span>Do seu bairro, da sua escola, da sua casa. Validado com três pessoas.</span></div>
+        <div><b>Um sistema que salva</b><span>Cadastra, busca, filtra, apaga e não perde nada quando você fecha.</span></div>
+        <div><b>Um link público</b><span>Publicado de graça, abre em qualquer celular, pronto para o QR Code.</span></div>
+        <div><b>Uma defesa firme</b><span>Você sabe explicar cada linha, porque a página explica cada uma delas.</span></div>
+      </div>
+    </section>
+
+    <div class="parte"><h2>Parte 1: entender e planejar</h2><span>Etapas 1 a 5. Aqui você ainda não escreve código.</span></div>
+
+    <!-- ============ 1 ============ -->
+    <section class="etapa" id="e1" data-passo="1">
+      <div class="etapa-cab">
+        <span class="etapa-num">1</span>
+        <div><h2>Empreender é resolver o problema de alguém</h2>
+        <p>Cinco minutos de leitura. Sem isso, o resto vira só um site bonito sem motivo.</p></div>
+      </div>
+      <div class="etapa-corpo">
+        <p>Empreender não é ter uma ideia genial no banho. É notar que alguém tem um problema e montar um jeito de resolver que continue funcionando depois que você for embora.</p>
+        <p>Existem três maneiras de encarar um problema social ou ambiental. Elas não são melhores nem piores, são diferentes:</p>
+        <div class="colunas">
+          <div class="cartao"><h4>Negócio comum</h4>O objetivo é o lucro. Se resolver um problema social no caminho, ótimo, mas não é o alvo.</div>
+          <div class="cartao"><h4>ONG ou projeto social</h4>O objetivo é resolver o problema. Depende de doação, edital ou voluntário para continuar existindo.</div>
+          <div class="cartao destaque"><h4>Negócio de impacto</h4>Resolve o problema <b>e</b> se sustenta sozinho. É o que você vai desenhar aqui, em versão pequena.</div>
+        </div>
+        <p class="chave">Impacto não é intenção. Impacto é o que mudou depois que você agiu, e que dá para contar em números.</p>
+        <h3>A diferença que derruba a maioria dos projetos</h3>
+        <p>Muita gente descreve a <b>atividade</b> e chama de impacto. Repare:</p>
+        <div class="tabela"><table>
+          <tr><th>Isso é atividade</th><th>Isso é impacto</th></tr>
+          <tr><td>Fizemos uma campanha de conscientização</td><td>O descarte irregular na Rua X caiu de 12 para 3 pontos em dois meses</td></tr>
+          <tr><td>Distribuímos panfletos sobre reciclagem</td><td>38 famílias passaram a separar o lixo seco</td></tr>
+          <tr><td>Criamos um site sobre doações</td><td>47 agasalhos foram doados através do site em três semanas</td></tr>
+        </table></div>
+        <p>A coluna da direita tem números. É por isso que o seu sistema precisa <b>guardar dados</b>: sem dado guardado, você não consegue provar que houve impacto. O site não é enfeite do projeto, ele é o instrumento de medida.</p>
+        <div class="nota"><b>Na apresentação vão te perguntar:</b> qual é o número que prova que o seu projeto funcionou? Comece a pensar nele agora. Na etapa 4 você escolhe esse número.</div>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="1"> Li e entendi a diferença entre atividade e impacto</label>
+    </section>
+
+    <!-- ============ 2 ============ -->
+    <section class="etapa" id="e2" data-passo="2">
+      <div class="etapa-cab">
+        <span class="etapa-num">2</span>
+        <div><h2>Ache um problema de verdade</h2>
+        <p>Problema inventado gera projeto fraco. Problema que você enxerga da janela gera projeto bom.</p></div>
+      </div>
+      <div class="etapa-corpo">
+        <h3>Olhe cinco lugares, escreva cinco problemas</h3>
+        <p>Não tente pensar em "um problema do mundo". Olhe para perto. Em cada lugar abaixo, escreva uma coisa que te incomoda:</p>
+        <div class="colunas">
+          <div class="cartao"><h4>Sua rua</h4>O que está quebrado, sujo, perigoso ou faltando?</div>
+          <div class="cartao"><h4>Sua escola</h4>O que se desperdiça? O que ninguém encontra quando precisa?</div>
+          <div class="cartao"><h4>Seu trajeto</h4>O que você vê todo dia no caminho e já se acostumou a achar normal?</div>
+          <div class="cartao"><h4>Sua casa</h4>O que se joga fora, gasta demais ou se perde por falta de controle?</div>
+          <div class="cartao"><h4>Seu bairro</h4>Quem precisa de ajuda e não sabe onde pedir? O que existe mas ninguém sabe que existe?</div>
+        </div>
+        <h3>Agora filtre</h3>
+        <p>Pegue a ideia que mais te interessa e passe pelo teste abaixo. Marque só o que for verdade:</p>
+        <div class="bancada">
+          <div class="bancada-cab">Teste da ideia <span>marque o que for verdade</span></div>
+          <div class="bancada-corpo">
+            <div class="teste-ideia">
+              <label><input type="checkbox" class="tq"> Eu consigo apontar o lugar exato onde esse problema acontece</label>
+              <label><input type="checkbox" class="tq"> Eu consigo nomear pessoas de verdade que sofrem com ele (não "a sociedade")</label>
+              <label><input type="checkbox" class="tq"> Eu consigo tirar três fotos minhas relacionadas a esse problema</label>
+              <label><input type="checkbox" class="tq"> Dá para melhorar alguma coisa juntando e organizando informação</label>
+              <label><input type="checkbox" class="tq"> Eu conheço pelo menos três pessoas que eu posso entrevistar sobre isso</label>
+            </div>
+            <p class="veredito" id="veredito">Marque as caixas acima para ver o resultado do teste.</p>
+          </div>
+        </div>
+        <h3>Converse com três pessoas antes de codar</h3>
+        <p>Esta é a etapa que separa projeto escolar de projeto de verdade, e quase ninguém faz. Encontre três pessoas afetadas pelo problema e pergunte. Vinte minutos no total, resolve.</p>
+        <div class="nota perigo"><b>Nunca pergunte:</b> "o que você acha da minha ideia?" Todo mundo responde que é ótima para não te magoar. Pergunte sobre o <b>problema</b>, nunca sobre a solução.</div>
+        <div class="codigo">
+          <div class="codigo-topo"><span class="codigo-nome">perguntas-da-entrevista.txt</span><button class="copiar" type="button">Copiar</button></div>
+          <pre>1. Me conta a última vez que esse problema te atrapalhou.
+   (deixe a pessoa falar, não interrompa, anote as palavras dela)
+
+2. O que você faz hoje para lidar com isso?
+   (se ela já tem uma solução, sua ideia precisa ser melhor que ela)
+
+3. O que é mais chato nesse jeito atual?
+   (aqui aparece a oportunidade de verdade)
+
+4. Se existisse uma forma mais fácil, você usaria? Com que frequência?
+   (resposta vaga tipo "acho que sim" normalmente significa não)</pre>
+        </div>
+        <p>Anote as respostas. Frases dessas pessoas, copiadas do jeito que elas falaram, ficam ótimas no site e na apresentação.</p>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="2"> Escolhi meu problema e entrevistei três pessoas</label>
+    </section>
+
+    <!-- ============ 3 ============ -->
+    <section class="etapa" id="e3" data-passo="3">
+      <div class="etapa-cab">
+        <span class="etapa-num">3</span>
+        <div><h2>Escolha seu ODS e preencha o Canvas</h2>
+        <p>O que você escrever aqui vai alimentar todo o resto da página, inclusive o seu código.</p></div>
+      </div>
+      <div class="etapa-corpo largo">
+        <p style="max-width:68ch">Os <b>ODS</b> são os 17 Objetivos de Desenvolvimento Sustentável da ONU: uma lista mundial de problemas que os países se comprometeram a resolver até 2030. Encaixar seu projeto em um ODS mostra que ele não é um capricho seu, é parte de uma agenda global. Escolha um ou dois, no máximo.</p>
+        <div class="bancada">
+          <div class="bancada-cab">Seu ODS <span>clique para escolher, até 2</span></div>
+          <div class="bancada-corpo">
+            <div class="ods" id="listaOds"></div>
+          </div>
+        </div>
+        <p style="max-width:68ch">Agora o <b>Canvas de Impacto</b>. São sete perguntas. Responda em uma frase cada, com palavras suas. Tudo fica salvo neste navegador automaticamente.</p>
+        <div class="bancada">
+          <div class="bancada-cab">Canvas de Impacto <span>salvo automaticamente</span></div>
+          <div class="bancada-corpo">
+            <p class="nota">Já vem preenchido com um exemplo para você ver o formato. <b>Troque por dados do seu projeto.</b> Use o botão do fim para limpar tudo.</p>
+            <div class="grade-form">
+              <div class="campo-form largo">
+                <label for="cv_nome">Nome do seu projeto</label>
+                <input type="text" id="cv_nome" data-canvas="nome" maxlength="45">
+              </div>
+              <div class="campo-form largo">
+                <label for="cv_problema">1. Qual é o problema? <span class="dica">Uma frase, sem enfeite. Onde acontece.</span></label>
+                <textarea id="cv_problema" data-canvas="problema" maxlength="220"></textarea>
+              </div>
+              <div class="campo-form">
+                <label for="cv_quem">2. Quem sofre com ele? <span class="dica">Pessoas concretas, não "a população".</span></label>
+                <textarea id="cv_quem" data-canvas="quem" maxlength="180"></textarea>
+              </div>
+              <div class="campo-form">
+                <label for="cv_onde">3. Onde exatamente? <span class="dica">Rua, bairro, escola, cidade.</span></label>
+                <textarea id="cv_onde" data-canvas="onde" maxlength="180"></textarea>
+              </div>
+              <div class="campo-form largo">
+                <label for="cv_faz">4. O que o seu sistema faz? <span class="dica">Um verbo no começo: registra, conecta, calcula, organiza, mostra.</span></label>
+                <textarea id="cv_faz" data-canvas="faz" maxlength="220"></textarea>
+              </div>
+              <div class="campo-form">
+                <label for="cv_usuario">5. Quem vai usar o site? <span class="dica">Pode ser diferente de quem sofre o problema.</span></label>
+                <textarea id="cv_usuario" data-canvas="usuario" maxlength="180"></textarea>
+              </div>
+              <div class="campo-form">
+                <label for="cv_ganho">6. Por que a pessoa usaria? <span class="dica">O que ela ganha. Tempo, dinheiro, segurança, reconhecimento.</span></label>
+                <textarea id="cv_ganho" data-canvas="ganho" maxlength="180"></textarea>
+              </div>
+              <div class="campo-form largo">
+                <label for="cv_continua">7. Como isso continua depois da entrega do trabalho? <span class="dica">Quem cuida, quem alimenta, quanto custa manter. Responder "não continua" é honesto e vale nota.</span></label>
+                <textarea id="cv_continua" data-canvas="continua" maxlength="220"></textarea>
+              </div>
+            </div>
+            <div class="acoes">
+              <button class="btn btn-2 btn-mini" type="button" id="limparCanvas">Limpar e começar do zero</button>
+              <span class="aviso-vivo" id="avisoCanvas"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="3"> Escolhi meu ODS e preenchi as sete perguntas</label>
+    </section>
+
+    <!-- ============ 4 ============ -->
+    <section class="etapa" id="e4" data-passo="4">
+      <div class="etapa-cab">
+        <span class="etapa-num">4</span>
+        <div><h2>Desenhe a Teoria da Mudança</h2>
+        <p>Nome difícil, ideia simples: a corrente que liga o que você faz ao que muda no mundo.</p></div>
+      </div>
+      <div class="etapa-corpo">
+        <p>São quatro elos. Se um deles não encaixa no seguinte, o projeto tem um furo, e é melhor descobrir isso agora do que na apresentação.</p>
+        <div class="fluxo">
+          <div><b>1. Recursos</b>O que você tem. Tempo, celular, computador, colegas, a escola.</div>
+          <div><b>2. Atividades</b>O que você faz com isso. Construir o site, divulgar, cadastrar.</div>
+          <div><b>3. Resultado</b>O que sai disso, contável. Número de cadastros, de pessoas, de itens.</div>
+          <div><b>4. Mudança</b>O que fica diferente na vida de alguém por causa do resultado.</div>
+        </div>
+        <h3>Exemplo preenchido</h3>
+        <div class="tabela"><table>
+          <tr><th>Elo</th><th>Mural de descarte irregular</th></tr>
+          <tr><td>Recursos</td><td>3 alunos, 2 celulares com câmera, 6 semanas, a rede da escola</td></tr>
+          <tr><td>Atividades</td><td>Site que registra ponto de descarte com foto, local e data. Divulgação no grupo do bairro</td></tr>
+          <tr><td>Resultado</td><td>28 pontos registrados por 14 moradores em 3 semanas</td></tr>
+          <tr><td>Mudança</td><td>A prefeitura recebeu a lista organizada e limpou 9 pontos que antes ninguém tinha reportado</td></tr>
+        </table></div>
+        <h3>Agora escolha o seu número</h3>
+        <p>Um só. O indicador é a resposta para "como eu vou saber que funcionou?". Ele precisa ser algo que o <b>seu site consegue contar sozinho</b>, senão você não terá como medir.</p>
+        <div class="bancada">
+          <div class="bancada-cab">Seu indicador</div>
+          <div class="bancada-corpo">
+            <div class="campo-form">
+              <label for="cv_indicador">Escreva assim: "número de ___ em ___ semanas"</label>
+              <input type="text" id="cv_indicador" data-canvas="indicador" maxlength="130">
+            </div>
+            <p class="nota">Exemplos que funcionam: número de ações cadastradas em 4 semanas, número de moradores diferentes que registraram algo, quilos de alimento doado somados pelo site, número de trocas concluídas.</p>
+          </div>
+        </div>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="4"> Montei os quatro elos e escolhi meu indicador</label>
+    </section>
+
+    <!-- ============ 5 ============ -->
+    <section class="etapa" id="e5" data-passo="5">
+      <div class="etapa-cab">
+        <span class="etapa-num">5</span>
+        <div><h2>Defina o que o site vai guardar</h2>
+        <p>Esta é a etapa mais importante da página. O que você decidir aqui vira código automaticamente.</p></div>
+      </div>
+      <div class="etapa-corpo largo">
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px;">
+          <h3>A ideia, com uma comparação</h3>
+          <p>Pense na agenda de contatos do seu celular. Ela guarda uma <b>lista</b>. Cada item da lista é uma <b>ficha</b>. E toda ficha tem sempre os mesmos <b>campos</b>: nome, telefone, e-mail. Muda o conteúdo de ficha para ficha, mas os campos são sempre os mesmos.</p>
+          <p class="chave">Seu site guarda uma lista de fichas. Decidir "o que o site guarda" é decidir quais campos toda ficha vai ter.</p>
+          <p>É assim que uma ficha fica, na prática:</p>
+        </div>
+        <div class="ficha-exemplo">
+          <dl>
+            <dt>Título</dt><dd>Mutirão de limpeza na Rua das Palmeiras</dd>
+            <dt>Categoria</dt><dd>Ambiental</dd>
+            <dt>Local</dt><dd>Rua das Palmeiras, altura do número 300</dd>
+            <dt>Participantes</dt><dd>15</dd>
+            <dt>O que foi feito</dt><dd>Recolhemos 12 sacos de lixo em três horas</dd>
+            <dt>Data</dt><dd>preenchida sozinha pelo site</dd>
+          </dl>
+        </div>
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px;">
+          <h3>A ligação que você precisa entender</h3>
+          <p>Cada campo da ficha vira um campo do formulário. Se a ficha tem cinco campos, o formulário tem cinco caixas para preencher. <b>São a mesma decisão</b>: definir os campos é definir o formulário e definir o que fica guardado, tudo de uma vez.</p>
+          <h3>Monte os campos do seu projeto</h3>
+          <p>Use entre quatro e sete campos. Menos que quatro fica pobre, mais que sete cansa quem vai preencher. Pelo menos um campo deve ser do tipo <b>lista de opções</b>, porque é ele que vai virar o filtro do seu site.</p>
+        </div>
+        <div class="bancada">
+          <div class="bancada-cab">Campos da sua ficha <span>salvo automaticamente</span></div>
+          <div class="bancada-corpo">
+            <div class="lista-campos" id="listaCampos"></div>
+            <div class="acoes">
+              <button class="btn btn-mini" type="button" id="addCampo">Adicionar campo</button>
+              <button class="btn btn-2 btn-mini" type="button" id="restaurarCampos">Voltar ao exemplo</button>
+              <span class="aviso-vivo" id="avisoCampos"></span>
+            </div>
+            <div class="tabela"><table>
+              <tr><th>Tipo</th><th>Use quando</th><th>Vira no site</th></tr>
+              <tr><td>Texto curto</td><td>Nome, título, local, responsável</td><td>Uma linha para digitar</td></tr>
+              <tr><td>Lista de opções</td><td>Categoria, situação, bairro, turno</td><td>Menu para escolher, e vira filtro</td></tr>
+              <tr><td>Texto longo</td><td>Descrição, relato, observação</td><td>Caixa grande de texto</td></tr>
+              <tr><td>Número</td><td>Quantidade, peso, pessoas, valor</td><td>Campo numérico, e o site soma tudo</td></tr>
+            </table></div>
+            <p class="nota">A <b>data</b> não entra na lista: o site preenche sozinho, com o relógio do computador, toda vez que alguém salva uma ficha.</p>
+          </div>
+        </div>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="5"> Defini os campos da minha ficha</label>
+    </section>
+
+    <div class="parte"><h2>Parte 2: construir</h2><span>Etapas 6 a 12. Agora sim, mão no computador.</span></div>
+
+    <!-- ============ 6 ============ -->
+    <section class="etapa" id="e6" data-passo="6">
+      <div class="etapa-cab">
+        <span class="etapa-num">6</span>
+        <div><h2>Prepare o computador e a pasta</h2>
+        <p>Dez minutos. Fazer errado aqui custa duas aulas depois.</p></div>
+      </div>
+      <div class="etapa-corpo">
+        <h3>1. O programa onde você escreve</h3>
+        <p>Escolha um dos dois. Se o computador da escola não deixa instalar nada, vá de primeiro.</p>
+        <ul>
+          <li><b>No navegador, sem instalar:</b> abra <code class="inline">vscode.dev</code>, clique em <b>Open Folder</b> e escolha a pasta do projeto.</li>
+          <li><b>Instalado:</b> baixe o Visual Studio Code em <code class="inline">code.visualstudio.com</code>, instale clicando em Avançar até o fim, abra e vá em <b>Arquivo, Abrir Pasta</b>.</li>
+        </ul>
+        <h3>2. A pasta</h3>
+        <p>Crie uma pasta na Área de Trabalho. O nome dela: <b>tudo minúsculo, sem espaço, sem acento</b>. Por exemplo <code class="inline">mural-do-bairro</code>. Dentro dela a estrutura precisa ficar exatamente assim:</p>
+        <div class="codigo">
+          <div class="codigo-topo"><span class="codigo-nome">estrutura da pasta</span></div>
+          <pre>mural-do-bairro/
+├── index.html      a página
+├── style.css       as cores e o layout
+├── script.js       o que funciona
+└── imagens/        pasta com as suas fotos
+    ├── capa.jpg
+    ├── foto1.jpg
+    └── foto2.jpg</pre>
+        </div>
+        <h3>3. A armadilha que pega quase todo mundo no Windows</h3>
+        <div class="nota perigo">
+          <b>O Windows esconde o final do nome dos arquivos.</b> Você cria <code class="inline">index.html</code> e ele salva <code class="inline">index.html.txt</code> escondendo o ".txt". O site nunca abre e você não descobre por quê.<br><br>
+          Resolva <b>antes</b> de criar qualquer arquivo: abra qualquer pasta, clique na aba <b>Exibir</b> e marque a caixa <b>Extensões de nomes de arquivos</b>. Agora você enxerga o nome de verdade.
+        </div>
+        <h3>4. Regras de nome, para tudo</h3>
+        <ul>
+          <li>Tudo minúsculo: <code class="inline">foto1.jpg</code>, nunca <code class="inline">Foto1.JPG</code></li>
+          <li>Sem espaço, use hífen: <code class="inline">praca-central.jpg</code></li>
+          <li>Sem acento e sem ç: <code class="inline">acoes.jpg</code>, nunca <code class="inline">ações.jpg</code></li>
+          <li>A página principal <b>tem que</b> se chamar <code class="inline">index.html</code>. Isso não é escolha, é regra dos servidores.</li>
+        </ul>
+        <p><b>Por que isso importa tanto:</b> seu computador não diferencia maiúscula de minúscula, mas o servidor onde o site vai ficar hospedado diferencia. O resultado é o erro mais irritante do projeto: funciona na sua máquina e quebra depois de publicado.</p>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="6"> Criei a pasta com os nomes certos e liguei a exibição de extensões</label>
+    </section>
+
+    <!-- ============ 7 ============ -->
+    <section class="etapa" id="e7" data-passo="7">
+      <div class="etapa-cab">
+        <span class="etapa-num">7</span>
+        <div><h2>Entenda os três arquivos</h2>
+        <p>Você vai usar isso o semestre inteiro. Leia uma vez com atenção.</p></div>
+      </div>
+      <div class="etapa-corpo">
+        <div class="tabela"><table>
+          <tr><th>Arquivo</th><th>É o quê</th><th>Responsável por</th></tr>
+          <tr><td><code class="inline">index.html</code></td><td>O esqueleto</td><td>O que existe na página: títulos, textos, imagens, campos, botões</td></tr>
+          <tr><td><code class="inline">style.css</code></td><td>A roupa</td><td>Como isso aparece: cor, tamanho, posição, espaçamento</td></tr>
+          <tr><td><code class="inline">script.js</code></td><td>O comportamento</td><td>O que acontece: salvar, apagar, buscar, filtrar, somar</td></tr>
+        </table></div>
+        <h3>Como os três se enxergam</h3>
+        <p>Eles não se conectam sozinhos. O HTML precisa <b>chamar</b> os outros dois, e são só duas linhas. Elas causam os dois problemas mais comuns do projeto: "meu site ficou sem cor" e "meu botão não faz nada".</p>
+        <div class="codigo">
+          <div class="codigo-topo"><span class="codigo-nome">as duas linhas que ligam tudo</span><button class="copiar" type="button">Copiar</button></div>
+          <pre>&lt;!-- dentro do &lt;head&gt;, chama o CSS --&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;!-- no fim, logo antes de fechar o &lt;/body&gt;, chama o JS --&gt;
+&lt;script src="script.js"&gt;&lt;/script&gt;</pre>
+        </div>
+        <div class="nota"><b>Atenção ao lugar do script.</b> Ele vai no <b>fim</b> do body, nunca no head. Motivo: o navegador lê a página de cima para baixo. Se o JavaScript rodar antes dos botões existirem, ele procura botões que ainda não estão lá e não faz nada.</div>
+        <h3>Duas palavras que aparecem o tempo todo</h3>
+        <ul>
+          <li><b><code class="inline">id</code></b> é o nome único de um elemento. O JavaScript usa o id para achar o elemento na página. Funciona como CPF: não repete.</li>
+          <li><b><code class="inline">class</code></b> é nome de grupo. O CSS usa a class para pintar vários elementos iguais de uma vez. Funciona como sobrenome: repete.</li>
+        </ul>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="7"> Entendi o papel de cada arquivo e as duas linhas de ligação</label>
+    </section>
+
+    <!-- ============ 8 ============ -->
+    <section class="etapa" id="e8" data-passo="8">
+      <div class="etapa-cab">
+        <span class="etapa-num">8</span>
+        <div><h2>Fale com a IA do jeito certo</h2>
+        <p>Quem pede bem recebe código que funciona de primeira. Quem pede mal passa três aulas consertando.</p></div>
+      </div>
+      <div class="etapa-corpo largo">
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px;">
+          <p>Qualquer IA gratuita serve: Claude, ChatGPT, Gemini, Copilot, DeepSeek, Mistral. Escolha uma e <b>fique nela do começo ao fim</b>, numa conversa só para o projeto, porque ela vai lembrando do contexto.</p>
+          <h3>As cinco regras</h3>
+          <ol>
+            <li><b>Diga quem você é na primeira mensagem.</b> Sem isso a IA responde no nível de um programador profissional.</li>
+            <li><b>Peça um arquivo por vez.</b> "Faz meu site inteiro" devolve um bloco gigante que você não consegue nem colar direito.</li>
+            <li><b>Proíba o que você não sabe usar.</b> Sempre escreva: sem React, sem Bootstrap, sem Tailwind, sem biblioteca externa.</li>
+            <li><b>Quando der erro, cole o erro.</b> Não escreva "não funcionou". Cole a mensagem vermelha inteira do console.</li>
+            <li><b>Peça explicação sempre.</b> É o que vai salvar sua nota na apresentação.</li>
+          </ol>
+          <h3>Sua mensagem de abertura</h3>
+          <p>O texto abaixo <b>já está preenchido com o seu projeto</b>, a partir do que você escreveu nas etapas 3, 4 e 5. Copie e cole como primeira mensagem da conversa. Só uma vez.</p>
+        </div>
+        <div class="codigo">
+          <div class="codigo-topo"><span class="codigo-nome">prompt 1, abertura</span><button class="copiar" type="button">Copiar</button></div>
+          <pre id="prompt1">carregando...</pre>
+        </div>
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px;">
+          <h3>Como colar o que ela te der</h3>
+          <ol>
+            <li>Clique no botão de copiar no canto do bloco de código.</li>
+            <li>Vá no arquivo certo no editor.</li>
+            <li>Se a IA disse "substitua o arquivo inteiro", selecione tudo com <code class="inline">Ctrl + A</code>, apague e cole.</li>
+            <li>Salve com <code class="inline">Ctrl + S</code>. Bolinha do lado do nome da aba significa não salvo.</li>
+            <li>Volte no navegador e atualize com <code class="inline">Ctrl + F5</code>. O F5 sozinho às vezes mostra a versão velha.</li>
+          </ol>
+          <div class="nota"><b>Salve versões que funcionam.</b> Toda vez que o site estiver rodando, copie a pasta inteira e renomeie para <code class="inline">projeto-v1</code>, <code class="inline">v2</code>, <code class="inline">v3</code>. Custa dez segundos e salva a aula no dia em que a IA reescrever demais e quebrar tudo.</div>
+        </div>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="8"> Abri minha conversa com a IA e colei o prompt de abertura</label>
+    </section>
+
+    <!-- ============ 9 ============ -->
+    <section class="etapa" id="e9" data-passo="9">
+      <div class="etapa-cab">
+        <span class="etapa-num">9</span>
+        <div><h2>Monte o HTML</h2>
+        <p>O código abaixo já tem os seus campos dentro. É só copiar.</p></div>
+      </div>
+      <div class="etapa-corpo largo">
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px;">
+          <p>Você tem dois caminhos, e os dois são válidos:</p>
+          <ul>
+            <li><b>Caminho seguro:</b> copie o código pronto abaixo. Ele já foi montado com os campos que você definiu na etapa 5 e funciona. Depois você pede à IA para mudar o que quiser.</li>
+            <li><b>Caminho longo:</b> peça à IA para escrever do zero, usando o prompt do fim desta etapa. Dá mais trabalho e você aprende mais.</li>
+          </ul>
+          <div class="nota"><b>Conselho:</b> use o caminho seguro primeiro. Ter um site funcionando na primeira aula muda tudo. Melhorar o que já funciona é muito mais fácil do que consertar o que nunca funcionou.</div>
+        </div>
+
+        <div class="bancada bancada-forte">
+          <div class="bancada-cab">Baixar o meu projeto <span>os três arquivos de uma vez</span></div>
+          <div class="bancada-corpo">
+            <p>Em vez de copiar e colar três vezes, clique no botão e receba a pasta inteira, já montada com os campos que você definiu na etapa 5. É só descompactar e abrir.</p>
+            <div class="acoes">
+              <button class="btn btn-grande" type="button" id="baixarZip">Baixar projeto.zip</button>
+              <button class="btn btn-2 btn-mini" type="button" id="baixarHtml">só o index.html</button>
+              <button class="btn btn-2 btn-mini" type="button" id="baixarCss">só o style.css</button>
+              <button class="btn btn-2 btn-mini" type="button" id="baixarJs">só o script.js</button>
+            </div>
+            <p class="aviso-vivo" id="avisoZip"></p>
+            <div class="nota"><b>Depois de baixar:</b> clique com o botão direito no arquivo <code class="inline">projeto.zip</code> e escolha <b>Extrair tudo</b>. Renomeie a pasta extraída para o nome do seu projeto, coloque suas fotos dentro de <code class="inline">imagens</code> e abra o <code class="inline">index.html</code> com dois cliques. O site já funciona.</div>
+            <div class="nota perigo"><b>Não pule as etapas 10 e 11.</b> Baixar o código pronto resolve o trabalho braçal, não a sua nota. O professor vai apontar uma linha e perguntar o que ela faz. As duas etapas seguintes explicam exatamente isso, arquivo por arquivo.</div>
+          </div>
+        </div>
+
+        <div class="codigo longo">
+          <div class="codigo-topo"><span class="codigo-nome">index.html, com os seus campos</span><button class="copiar" type="button">Copiar</button></div>
+          <pre id="codHtml">carregando...</pre>
+        </div>
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px;">
+          <h3>O que tem dentro desse arquivo</h3>
+          <div class="tabela"><table>
+            <tr><th>Parte</th><th>Para que serve</th></tr>
+            <tr><td>Cabeçalho</td><td>Nome do projeto e menu que leva às seções</td></tr>
+            <tr><td>Capa</td><td>Sua foto grande com a frase principal do projeto</td></tr>
+            <tr><td>O problema</td><td>Seu texto e duas fotos com legenda</td></tr>
+            <tr><td>Painel</td><td>Os números do projeto, calculados sozinhos</td></tr>
+            <tr><td>Formulário</td><td>Os campos que você definiu na etapa 5</td></tr>
+            <tr><td>Mural</td><td>Onde as fichas cadastradas aparecem, com busca e filtro</td></tr>
+            <tr><td>Rodapé</td><td>Sua equipe, sua turma e as fontes dos dados</td></tr>
+          </table></div>
+          <p>Onde estiver escrito <b>TROQUE</b> no código, é texto que você precisa substituir pelo seu.</p>
+        </div>
+        <div class="codigo">
+          <div class="codigo-topo"><span class="codigo-nome">prompt 2, mudar o HTML</span><button class="copiar" type="button">Copiar</button></div>
+          <pre id="prompt2">carregando...</pre>
+        </div>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="9"> Meu index.html está pronto e abre no navegador</label>
+    </section>
+
+    <!-- ============ 10 ============ -->
+    <section class="etapa" id="e10" data-passo="10">
+      <div class="etapa-cab">
+        <span class="etapa-num">10</span>
+        <div><h2>Monte o CSS</h2>
+        <p>Cole, veja ganhar cor, depois mexa nas cinco linhas que mudam tudo.</p></div>
+      </div>
+      <div class="etapa-corpo largo">
+        <div class="codigo longo">
+          <div class="codigo-topo"><span class="codigo-nome">style.css</span><button class="copiar" type="button">Copiar</button></div>
+          <pre id="codCss">carregando...</pre>
+        </div>
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px;">
+          <h3>Mude a identidade visual em cinco linhas</h3>
+          <p>No começo do arquivo tem um bloco chamado <code class="inline">:root</code>. Ali estão as cores do site inteiro. Troque um valor ali e ele muda em todos os lugares de uma vez. Você não precisa procurar cor nenhuma no resto do arquivo.</p>
+          <div class="codigo">
+            <div class="codigo-topo"><span class="codigo-nome">as cores, no topo do style.css</span></div>
+            <pre>:root{
+  --tinta:  #10201c;   /* cor do texto */
+  --papel:  #f1f0ea;   /* fundo da página */
+  --marca:  #1f4e79;   /* cor principal, botões e barras */
+  --sinal:  #e39a10;   /* cor de destaque */
+  --alerta: #a34123;   /* cor de apagar */
+}</pre>
+          </div>
+          <p>Para achar códigos de cor, pesquise "color picker" no Google e copie o valor que começa com <code class="inline">#</code>. Escolha cores que combinem com o tema: um projeto sobre água pede azuis, um sobre horta pede verdes e terrosos, um sobre segurança pede tons mais sóbrios.</p>
+          <div class="nota"><b>Contraste importa e conta na nota.</b> Texto cinza-claro em fundo branco é bonito na sua tela e ilegível no celular de alguém no sol. Mantenha texto escuro em fundo claro, ou o contrário.</div>
+        </div>
+        <div class="codigo">
+          <div class="codigo-topo"><span class="codigo-nome">prompt 3, ajustar o visual</span><button class="copiar" type="button">Copiar</button></div>
+          <pre id="prompt3">carregando...</pre>
+        </div>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="10"> Meu site tem cor e a identidade visual é minha</label>
+    </section>
+
+    <!-- ============ 11 ============ -->
+    <section class="etapa" id="e11" data-passo="11">
+      <div class="etapa-cab">
+        <span class="etapa-num">11</span>
+        <div><h2>Faça o site salvar os dados</h2>
+        <p>Esta é a etapa que você vai ter que explicar na apresentação. Leia devagar.</p></div>
+      </div>
+      <div class="etapa-corpo largo">
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px;">
+          <h3>Como o navegador guarda coisas</h3>
+          <p>Todo navegador tem uma gaveta chamada <b>localStorage</b>. Você guarda coisas nela e elas continuam lá depois de fechar o navegador, desligar o computador e voltar na semana seguinte.</p>
+          <p>Duas características que você precisa saber explicar:</p>
+          <ol>
+            <li>A gaveta guarda <b>apenas texto</b>. Por isso convertemos: <code class="inline">JSON.stringify</code> transforma a lista em texto na hora de guardar, e <code class="inline">JSON.parse</code> transforma o texto de volta em lista na hora de ler.</li>
+            <li>A gaveta é <b>daquele navegador, naquele aparelho</b>. O que você salvou no seu notebook não aparece no celular do seu colega.</li>
+          </ol>
+          <p class="chave">O ciclo que se repete em todo sistema do mundo: ler tudo, alterar a lista, gravar tudo de volta, redesenhar a tela.</p>
+          <div class="codigo">
+            <div class="codigo-topo"><span class="codigo-nome">o coração do sistema, em 12 linhas</span><button class="copiar" type="button">Copiar</button></div>
+            <pre>// LER: pega o texto da gaveta e devolve uma lista
+function lerFichas(){
+  const texto = localStorage.getItem(CHAVE);
+  if(!texto) return [];          // gaveta vazia devolve lista vazia
+  return JSON.parse(texto);      // texto vira lista de novo
+}
+
+// GRAVAR: pega a lista, vira texto e guarda
+function gravarFichas(lista){
+  localStorage.setItem(CHAVE, JSON.stringify(lista));
+}</pre>
+          </div>
+          <p>Agora o arquivo completo, já com os seus campos, a busca, o filtro, o painel de números e os botões de exportar e importar:</p>
+        </div>
+        <div class="codigo longo">
+          <div class="codigo-topo"><span class="codigo-nome">script.js, com os seus campos</span><button class="copiar" type="button">Copiar</button></div>
+          <pre id="codJs">carregando...</pre>
+        </div>
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px;">
+          <h3>O teste que prova que funcionou</h3>
+          <p>Ver a ficha aparecer na tela não prova nada: pode ser só texto na página, sem nada salvo. O teste de verdade tem três passos:</p>
+          <ol>
+            <li>Cadastre duas fichas</li>
+            <li><b>Feche o navegador inteiro</b>, não só a aba</li>
+            <li>Abra de novo o <code class="inline">index.html</code></li>
+          </ol>
+          <p>Se as duas fichas continuarem lá, sua persistência funciona. Se sumirem, você está só mostrando na tela e não salvando.</p>
+          <div class="nota"><b>A pergunta que vem na apresentação:</b> "se eu abrir no meu celular, aparece o que você cadastrou?"<br><br>
+          A resposta certa: <i>"Não. Neste protótipo os dados ficam salvos no navegador de cada usuário, com localStorage. Isso é suficiente para demonstrar a ideia. Para os dados serem compartilhados entre todo mundo seria preciso um banco de dados num servidor, que é o próximo passo se o projeto continuar."</i><br><br>
+          Reconhecer o limite do seu protótipo vale mais nota do que fingir que ele não existe.</div>
+          <div class="nota perigo"><b>Antes de apresentar,</b> cadastre quatro ou cinco fichas de exemplo no computador em que você vai apresentar. Mural vazio não impressiona ninguém, e cadastrar tudo ao vivo come o seu tempo.</div>
+        </div>
+        <div class="codigo">
+          <div class="codigo-topo"><span class="codigo-nome">prompt 4, entender o próprio código</span><button class="copiar" type="button">Copiar</button></div>
+          <pre id="prompt4">carregando...</pre>
+        </div>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="11"> Cadastrei, fechei o navegador, abri e os dados continuavam lá</label>
+    </section>
+
+    <!-- ============ 12 ============ -->
+    <section class="etapa" id="e12" data-passo="12">
+      <div class="etapa-cab">
+        <span class="etapa-num">12</span>
+        <div><h2>Coloque as suas fotos</h2>
+        <p>Fotos tiradas por você. Isso não é sugestão, é critério de nota.</p></div>
+      </div>
+      <div class="etapa-corpo">
+        <h3>Regras que você lê antes de fotografar</h3>
+        <ul>
+          <li><b>Só fotos suas ou da sua equipe.</b> Nada de Google Imagens, Pinterest ou banco de imagens. Foto de terceiro sem autorização é violação de direito autoral e é fácil de detectar.</li>
+          <li><b>Rosto de alguém exige autorização.</b> Peça e registre. Se for menor de idade, precisa de autorização dos responsáveis.</li>
+          <li><b>Não publique nada que identifique o endereço de alguém:</b> número de casa, placa de carro, uniforme com nome, documento.</li>
+          <li><b>Não fotografe colegas sem que eles saibam e concordem.</b> Isso vale mesmo em foto de grupo.</li>
+        </ul>
+        <div class="nota"><b>Saída simples para tudo isso:</b> fotografe o lugar, o objeto, o resultado. Uma calçada quebrada, um ponto de descarte, sacos de lixo recolhidos, um cartaz. Funciona igual e evita o problema inteiro.</div>
+        <h3>Preparar as fotos, em quatro passos</h3>
+        <ol>
+          <li><b>Tire as fotos.</b> Celular serve. Prefira luz do dia e evite foto tremida.</li>
+          <li><b>Passe para o computador.</b> WhatsApp Web para você mesmo, cabo USB, Google Fotos ou e-mail.</li>
+          <li><b>Renomeie.</b> O nome que sai do celular é <code class="inline">IMG_20260910_143022.jpg</code>. Troque para <code class="inline">praca-antes.jpg</code>, seguindo as regras da etapa 6.</li>
+          <li><b>Diminua o tamanho. Isso não é opcional.</b></li>
+        </ol>
+        <p>Foto de celular tem entre 3 e 8 MB. É grande demais para um site: demora a carregar no 4G e o serviço de hospedagem pode travar o envio. Deixe cada imagem <b>abaixo de 300 KB</b> e o projeto todo abaixo de 10 MB.</p>
+        <ul>
+          <li>Acesse <code class="inline">squoosh.app</code>, arraste a foto, reduza a largura para 1600 pixels e baixe</li>
+          <li>Ou <code class="inline">tinypng.com</code>, arraste até 20 fotos de uma vez</li>
+          <li>Depois confira: botão direito no arquivo, <b>Propriedades</b></li>
+        </ul>
+        <h3>Colocar no HTML</h3>
+        <div class="codigo">
+          <div class="codigo-topo"><span class="codigo-nome">como uma imagem entra na página</span><button class="copiar" type="button">Copiar</button></div>
+          <pre>&lt;img src="imagens/praca-antes.jpg" alt="Calçada da praça central com buracos e mato alto"&gt;</pre>
+        </div>
+        <p>Três coisas para conferir: a barra é <code class="inline">/</code> e não <code class="inline">\</code>; o nome depois da barra é idêntico ao do arquivo, letra por letra; e o <code class="inline">alt</code> descreve o que aparece na foto, porque é isso que o leitor de tela de uma pessoa cega vai ler em voz alta.</p>
+        <div class="nota perigo"><b>Imagem quebrada?</b> A causa é quase sempre uma destas quatro, nesta ordem: maiúscula diferente no nome; esqueceu a pasta e escreveu <code class="inline">src="foto1.jpg"</code> em vez de <code class="inline">src="imagens/foto1.jpg"</code>; a extensão é <code class="inline">.jpeg</code> e você escreveu <code class="inline">.jpg</code>; ou a foto não está dentro da pasta do projeto.</div>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="12"> Minhas três fotos estão na pasta, compactadas e aparecendo</label>
+    </section>
+
+    <div class="parte"><h2>Parte 3: entregar</h2><span>Etapas 13 e 14. A reta final.</span></div>
+
+    <!-- ============ 13 ============ -->
+    <section class="etapa" id="e13" data-passo="13">
+      <div class="etapa-cab">
+        <span class="etapa-num">13</span>
+        <div><h2>Teste tudo antes de publicar</h2>
+        <p>Cinco minutos aqui evitam a vergonha de o site quebrar na frente da turma.</p></div>
+      </div>
+      <div class="etapa-corpo">
+        <h3>Abra o console</h3>
+        <p>Aperte <code class="inline">F12</code> no navegador e clique na aba <b>Console</b>. Nada em vermelho significa que seu JavaScript está rodando. Algo em vermelho: leia a mensagem, ela diz o arquivo e a linha, e leve para a seção Socorro logo abaixo.</p>
+        <h3>Teste no celular sem publicar</h3>
+        <p>Com o F12 aberto, clique no ícone de celular e tablet no canto do painel. O navegador simula uma tela pequena. Navegue por tudo.</p>
+        <h3>Confira item por item</h3>
+        <div class="checklist" id="listaTeste"></div>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="13"> Passei por todos os itens do teste</label>
+    </section>
+
+    <!-- ============ 14 ============ -->
+    <section class="etapa" id="e14" data-passo="14">
+      <div class="etapa-cab">
+        <span class="etapa-num">14</span>
+        <div><h2>Publique e apresente</h2>
+        <p>Dois minutos para o site estar no ar. Depois, o roteiro dos cinco minutos.</p></div>
+      </div>
+      <div class="etapa-corpo largo">
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px;">
+          <h3>Caminho A: Netlify Drop, o mais rápido</h3>
+          <ol>
+            <li>Confira de novo que o <code class="inline">index.html</code> está no primeiro nível da pasta, e não dentro de outra pasta. Este é o erro que faz a página abrir em branco.</li>
+            <li>Abra <code class="inline">app.netlify.com/drop</code></li>
+            <li>Arraste a <b>pasta inteira</b> para a área indicada. A pasta, não os arquivos soltos, e não um .zip.</li>
+            <li>Espere alguns segundos. Aparece um endereço parecido com <code class="inline">sonoro-pastel-9c3f1a.netlify.app</code></li>
+            <li>Abra esse endereço. Se o site aparecer certinho, ele já está no ar para o mundo.</li>
+            <li><b>Importante:</b> nesse momento o site é anônimo e temporário. Clique em <b>Claim</b> ou <b>Sign up</b> e crie uma conta gratuita. Isso torna o site permanente.</li>
+            <li>Com a conta criada, entre em <b>Site configuration</b> e troque o nome para algo apresentável, tipo <code class="inline">mural-do-bairro-2a.netlify.app</code></li>
+            <li>Para atualizar depois: no painel do site, aba <b>Deploys</b>, arraste a pasta atualizada na área do rodapé da página.</li>
+          </ol>
+          <div class="nota">Mantenha o projeto abaixo de 50 MB no total e nenhum arquivo acima de 10 MB. Se você compactou as fotos na etapa 12, está muito longe desse limite.</div>
+          <h3>Caminho B: GitHub Pages, mais trabalhoso e mais profissional</h3>
+          <p>A vantagem é ficar com um repositório público, com histórico, que você pode mostrar num currículo depois.</p>
+          <ol>
+            <li>Crie conta em <code class="inline">github.com</code></li>
+            <li>Clique no <code class="inline">+</code> do canto superior direito, <b>New repository</b></li>
+            <li>Nome minúsculo com hífen, marque <b>Public</b>, não marque mais nada, <b>Create repository</b></li>
+            <li>Clique em <b>uploading an existing file</b> e arraste os arquivos e a pasta <code class="inline">imagens</code></li>
+            <li>Role a página e clique em <b>Commit changes</b></li>
+            <li>Vá na aba <b>Settings</b>, menu da esquerda, seção Code and automation, clique em <b>Pages</b></li>
+            <li>Em Source escolha <b>Deploy from a branch</b>, em Branch escolha <b>main</b>, pasta <b>/ (root)</b>, clique em <b>Save</b></li>
+            <li>Espere de 1 a 3 minutos e atualize. Aparece o endereço <code class="inline">seu-usuario.github.io/nome-do-repositorio/</code></li>
+          </ol>
+          <div class="nota perigo"><b>No GitHub Pages maiúscula e minúscula fazem diferença de verdade.</b> Se alguma imagem sumir aqui e funcionava no seu computador, é exatamente isso. Volte na etapa 6.</div>
+          <h3>O roteiro dos cinco minutos</h3>
+        </div>
+        <div class="tabela"><table>
+          <tr><th>Tempo</th><th>O que fazer</th></tr>
+          <tr><td>0:00 a 0:45</td><td><b>O problema.</b> Qual é, onde acontece, quem sofre. Mostre suas fotos.</td></tr>
+          <tr><td>0:45 a 1:15</td><td><b>A ideia.</b> O que o site faz, para quem, e qual ODS ele endereça.</td></tr>
+          <tr><td>1:15 a 3:00</td><td><b>Demonstração ao vivo.</b> Cadastre uma ficha na frente da turma. Recarregue e mostre que continua lá. Use a busca e o filtro. Apague uma.</td></tr>
+          <tr><td>3:00 a 4:00</td><td><b>Por dentro.</b> Abra o script.js no projetor e explique a função que salva.</td></tr>
+          <tr><td>4:00 a 4:30</td><td><b>Impacto e limites.</b> Seu indicador, o que o protótipo ainda não faz e qual seria o próximo passo.</td></tr>
+          <tr><td>4:30 a 5:00</td><td><b>Perguntas.</b></td></tr>
+        </table></div>
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px;">
+          <h3>Prepare antes</h3>
+          <ul>
+            <li>Cadastre quatro ou cinco fichas de exemplo no computador da apresentação</li>
+            <li>Deixe o link aberto numa aba</li>
+            <li>Gere um QR Code do seu link em <code class="inline">qr-code-generator.com</code> e coloque no slide, para a turma abrir no celular</li>
+            <li>Tenha o link salvo no bloco de notas, no e-mail e no WhatsApp. Não confie em decorar.</li>
+          </ul>
+          <h3>As cinco perguntas que sempre caem</h3>
+          <ol>
+            <li>Onde os dados ficam guardados?</li>
+            <li>Se eu abrir no meu celular, vejo o que você cadastrou? Por quê?</li>
+            <li>O que essa linha aqui faz? (apontando uma linha qualquer do seu JS)</li>
+            <li>Quanto desse código a IA escreveu e o que você mudou nele?</li>
+            <li>Qual foi o erro mais difícil que você resolveu?</li>
+          </ol>
+          <div class="nota"><b>Sobre a pergunta 4:</b> a resposta honesta é a resposta certa. "A IA escreveu a base e eu ajustei estas partes, entendendo o que cada uma faz" é uma boa resposta. "Eu escrevi tudo sozinho", quando não é verdade, é péssima, e a pergunta 3 desmonta na hora.</div>
+        </div>
+      </div>
+      <label class="feito"><input type="checkbox" data-passo="14"> Meu site está publicado e eu tenho o link</label>
+    </section>
+
+    <!-- ============ SOCORRO ============ -->
+    <section class="etapa" id="socorro">
+      <div class="etapa-cab">
+        <span class="etapa-num">?</span>
+        <div><h2>Socorro: deu erro</h2>
+        <p>Clique no sintoma parecido com o seu. Não fique 40 minutos no mesmo erro.</p></div>
+      </div>
+      <div class="etapa-corpo largo">
+        <div class="sintomas" id="sintomas"></div>
+        <div class="diagnostico" id="diagnostico"></div>
+        <div style="max-width:68ch">
+          <h3>Se nada resolveu</h3>
+          <ol>
+            <li>Leia a mensagem do console inteira. Ela quase sempre diz o arquivo e a linha.</li>
+            <li>Use o prompt de conserto abaixo, com o erro colado.</li>
+            <li>Volte para a última versão que funcionava.</li>
+            <li>Chame o professor com o console aberto na tela.</li>
+          </ol>
+        </div>
+        <div class="codigo">
+          <div class="codigo-topo"><span class="codigo-nome">prompt 5, consertar erro</span><button class="copiar" type="button">Copiar</button></div>
+          <pre id="prompt5">carregando...</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ENTREGA ============ -->
+    <section class="etapa" id="entrega">
+      <div class="etapa-cab">
+        <span class="etapa-num">✓</span>
+        <div><h2>Ficha de entrega</h2>
+        <p>Confira com o link aberto no celular, fora do wi-fi da escola.</p></div>
+      </div>
+      <div class="etapa-corpo largo">
+        <div class="checklist" id="listaEntrega"></div>
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px;">
+          <h3>O resumo do seu projeto</h3>
+          <p>O texto abaixo junta tudo o que você preencheu. Copie e entregue junto com o link, ou use como roteiro da apresentação.</p>
+        </div>
+        <div class="codigo">
+          <div class="codigo-topo"><span class="codigo-nome">resumo-do-projeto.txt</span><button class="copiar" type="button">Copiar</button></div>
+          <pre id="resumoFinal">carregando...</pre>
+        </div>
+      </div>
+    </section>
+
+    <footer class="rodape">
+      <p><b>Uma última coisa.</b> Vai dar erro, muitas vezes. Isso não significa que você não leva jeito, significa que você está programando. Todo profissional passa a maior parte do tempo consertando coisa quebrada. A diferença entre quem termina o projeto e quem desiste não é talento, é não largar no terceiro erro.</p>
+      <p style="color:var(--ink-3); font-size:.84rem;">Suas respostas e o seu progresso ficam salvos apenas neste navegador, neste aparelho. Se você trocar de computador, precisa preencher de novo. Copie o resumo acima antes de trocar.</p>
+      <div class="acoes" style="margin-top:6px;">
+        <button class="btn btn-2 btn-mini" type="button" id="recomecar">Recomeçar do zero</button>
+        <span class="aviso-vivo" id="avisoRecomecar">Use isto se você está pegando um computador que outro aluno usou antes.</span>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
