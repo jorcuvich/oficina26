@@ -168,16 +168,64 @@ function textoOds(){
 }
 
 /* ============ canvas ============ */
+
+/* O campo cresce junto com o texto. Sem isto a resposta do aluno fica
+   escondida dentro de uma caixa pequena e ele não vê o que escreveu. */
+function ajustarAltura(el){
+  if(el.tagName !== "TEXTAREA") return;
+  el.style.height = "auto";
+  el.style.height = Math.max(62, el.scrollHeight + 2) + "px";
+}
+
+/* Marca cada pergunta como exemplo da ferramenta ou resposta da equipe,
+   e conta quantas já foram trocadas. */
+function marcarCampo(el, chave){
+  var rotulo = document.querySelector('label[for="' + el.id + '"]');
+  if(!rotulo) return;
+  var marca = rotulo.querySelector(".marca-campo");
+  if(!marca){
+    marca = document.createElement("span");
+    marca.className = "marca-campo";
+    rotulo.appendChild(marca);
+  }
+  var valor = String(el.value || "").trim();
+  var exemplo = String(PADRAO.canvas[chave] || "").trim();
+  var respondido = valor !== "" && valor !== exemplo;
+  marca.textContent = respondido ? "sua resposta" : "exemplo";
+  marca.classList.toggle("resposta", respondido);
+  marca.classList.toggle("exemplo", !respondido);
+  return respondido;
+}
+
+function contarCanvas(){
+  var alvo = $("#contaCanvas");
+  if(!alvo) return;
+  var chaves = Object.keys(PADRAO.canvas).filter(function(k){ return k !== "nome" && k !== "indicador"; });
+  var feitas = chaves.filter(function(k){
+    var v = String(E.canvas[k] || "").trim();
+    return v !== "" && v !== String(PADRAO.canvas[k] || "").trim();
+  }).length;
+  alvo.textContent = feitas === chaves.length
+    ? "as " + chaves.length + " respondidas com as suas palavras"
+    : feitas + " de " + chaves.length + " com as suas palavras";
+}
+
 function montarCanvas(){
   $$("[data-canvas]").forEach(function(el){
     var chave = el.getAttribute("data-canvas");
     el.value = E.canvas[chave] || "";
+    ajustarAltura(el);
+    marcarCampo(el, chave);
     el.addEventListener("input", function(){
       E.canvas[chave] = el.value;
+      ajustarAltura(el);
+      marcarCampo(el, chave);
+      contarCanvas();
       salvar(); atualizarTextos();
       piscar($("#avisoCanvas"), "Salvo");
     });
   });
+  contarCanvas();
 }
 var timers = {};
 function piscar(el, texto){

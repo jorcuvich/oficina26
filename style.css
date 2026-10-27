@@ -345,3 +345,19 @@ textarea{resize:vertical; min-height:62px;}
   .linha-campo .apagar{grid-column:2; justify-self:end;}
   .abertura{padding:30px 0 26px;}
 }
+
+/* =========================================================
+   Canvas de Impacto: estado de cada pergunta
+   Mostra ao aluno o que ainda e exemplo da ferramenta e o que
+   ja foi trocado pelas palavras dele. A etiqueta corre junto com
+   o texto do rotulo, para nao quebrar o layout de duas colunas.
+   ========================================================= */
+.campo-form label{line-height:1.5;}
+.marca-campo{
+  display:inline-block; margin-left:6px;
+  font-size:.64rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+  padding:2px 7px; border-radius:2px; white-space:nowrap;
+}
+.marca-campo.exemplo{color:var(--signal); background:var(--signal-soft);}
+.marca-campo.resposta{color:var(--moss); background:var(--moss-soft);}
+.campo-form textarea{overflow:hidden;}
