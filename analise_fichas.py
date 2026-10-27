@@ -49,6 +49,7 @@ EXEMPLO = {
     "usuario": "Moradores, a associação de bairro e os alunos que organizam mutirões.",
     "ganho": "O trabalho dela fica visível e ela consegue mostrar para a prefeitura o que já foi feito.",
     "continua": "A associação de moradores fica com a senha e alimenta o mural. O site é gratuito, não tem custo mensal.",
+    "financiamento": "Não precisa de dinheiro para funcionar: a hospedagem é gratuita no GitHub Pages e quem alimenta é a própria associação. Se um dia quisermos um endereço próprio, custa cerca de 40 reais por ano, e a associação já disse que paga.",
     "indicador": "número de ações cadastradas por moradores diferentes em 4 semanas",
 }
 

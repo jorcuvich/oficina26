@@ -14,6 +14,7 @@ var PADRAO = {
     usuario:"Moradores, a associação de bairro e os alunos que organizam mutirões.",
     ganho:"O trabalho dela fica visível e ela consegue mostrar para a prefeitura o que já foi feito.",
     continua:"A associação de moradores fica com a senha e alimenta o mural. O site é gratuito, não tem custo mensal.",
+    financiamento:"Não precisa de dinheiro para funcionar: a hospedagem é gratuita no GitHub Pages e quem alimenta é a própria associação. Se um dia quisermos um endereço próprio, custa cerca de 40 reais por ano, e a associação já disse que paga.",
     indicador:"número de ações cadastradas por moradores diferentes em 4 semanas"
   },
   campos:[
@@ -269,6 +270,7 @@ function prompt1(){
 "Quem vai usar: " + vazio(c.usuario,"(preencher)"),
 "Por que usariam: " + vazio(c.ganho,"(preencher)"),
 "Como se mantem: " + vazio(c.continua,"(preencher)"),
+"Como se paga: " + vazio(c.financiamento,"(preencher)"),
 "Objetivo de Desenvolvimento Sustentavel: " + textoOds(),
 "Indicador de impacto: " + vazio(c.indicador,"(preencher)"),
 "",
@@ -371,6 +373,8 @@ function gerarHtml(){
   L.push('    <p class="marca">' + escTexto(vazio(c.nome,"Nome do Projeto")) + '</p>');
   L.push('    <nav>');
   L.push('      <a href="#problema">O problema</a>');
+  L.push('      <a href="#solucao">A solucao</a>');
+  L.push('      <a href="#sustentar">Como se paga</a>');
   L.push('      <a href="#cadastrar">Cadastrar</a>');
   L.push('      <a href="#mural">Mural</a>');
   L.push('    </nav>');
@@ -403,6 +407,20 @@ function gerarHtml(){
   L.push('      <figcaption>TROQUE: onde foi, quando foi, o que mostra.</figcaption>');
   L.push('    </figure>');
   L.push('  </div>');
+  L.push('</section>');
+  L.push('');
+  L.push('<section id="solucao" class="bloco">');
+  L.push('  <h2>A dor e a solucao</h2>');
+  L.push('  <p class="largura-texto">A dor descrita acima e atacada assim:</p>');
+  L.push('  <p class="largura-texto"><b>O que este site faz:</b> ' + escTexto(vazio(c.faz,"TROQUE: o que o sistema faz, em uma frase.")) + '</p>');
+  L.push('  <p class="largura-texto"><b>Quem vai usar:</b> ' + escTexto(vazio(c.usuario,"TROQUE: quem abre o site e preenche.")) + '</p>');
+  L.push('  <p class="largura-texto"><b>O que muda para essa pessoa:</b> ' + escTexto(vazio(c.ganho,"TROQUE: o que ela ganha. Tempo, dinheiro, seguranca, reconhecimento.")) + '</p>');
+  L.push('</section>');
+  L.push('');
+  L.push('<section id="sustentar" class="bloco">');
+  L.push('  <h2>Como o projeto se paga</h2>');
+  L.push('  <p class="largura-texto">' + escTexto(vazio(c.financiamento,"TROQUE: de onde vem o dinheiro, ou por que nao precisa de dinheiro.")) + '</p>');
+  L.push('  <p class="largura-texto"><b>Quem mantem depois da entrega:</b> ' + escTexto(vazio(c.continua,"TROQUE: quem cuida, quem alimenta, quanto custa manter.")) + '</p>');
   L.push('</section>');
   L.push('');
   L.push('<section class="bloco">');
@@ -889,6 +907,9 @@ vazio(c.faz,"(nao preenchido)"),
 "POR QUE USARIA: " + vazio(c.ganho,"(nao preenchido)"),
 "COMO SE MANTEM: " + vazio(c.continua,"(nao preenchido)"),
 "",
+"COMO SE PAGA",
+vazio(c.financiamento,"(nao preenchido)"),
+"",
 "ODS: " + textoOds(),
 "INDICADOR DE IMPACTO: " + vazio(c.indicador,"(nao preenchido)"),
 "",
@@ -1017,6 +1038,9 @@ var ITENS_ENTREGA = [
  "O link público do site funcionando",
  "A pasta do projeto compactada em .zip",
  "O resumo do projeto preenchido",
+ "O site explica o problema, e não só mostra o cadastro",
+ "O site diz qual é a dor de quem vive o problema e o que muda para essa pessoa",
+ "O site diz como o projeto se paga, ou por que não precisa de dinheiro",
  "Um print da tela com pelo menos 5 registros cadastrados",
  "A lista de quais fotos são minhas e quem aparece nelas com autorização",
  "Abri o link no celular, fora do wi-fi da escola, e funcionou",
