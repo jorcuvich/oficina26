@@ -1,0 +1,80 @@
+{
+  "formato": "oficina-de-impacto/ficha-de-uso/1",
+  "geradoEm": "2026-10-27T11:52:06.135Z",
+  "equipe": "E03",
+  "turma": "2A",
+  "uso": {
+    "inicio": "2026-10-27T11:51:33.848Z",
+    "fim": "2026-10-27T11:51:35.893Z",
+    "dias": [
+      "2026-10-27"
+    ],
+    "copias": {
+      "prompt1": 1,
+      "prompt4": 2
+    },
+    "copiasEm": {
+      "prompt1": [
+        "2026-10-27T11:51:34.373Z"
+      ],
+      "prompt4": [
+        "2026-10-27T11:51:34.435Z",
+        "2026-10-27T11:51:34.486Z"
+      ]
+    },
+    "passosEm": {
+      "1": "2026-10-27T11:51:34.716Z"
+    },
+    "zip": 1,
+    "zipEm": [
+      "2026-10-27T11:51:35.484Z"
+    ],
+    "socorro": {
+      "O site ficou sem cor nenhuma, só texto preto": 2,
+      "Os botões não fazem absolutamente nada": 1
+    }
+  },
+  "projeto": {
+    "canvas": {
+      "nome": "Mural de Ações do Bairro",
+      "problema": "Ações de limpeza e doação acontecem no bairro, mas ninguém registra, então nada é cobrado nem tem continuidade.",
+      "quem": "Moradores da Vila Nova que organizam mutirões por conta própria e nunca sabem o que já foi feito.",
+      "onde": "Vila Nova, entre a Rua das Palmeiras e a praça central.",
+      "faz": "Registra cada ação realizada no bairro com responsável, local e data, e mostra tudo num mural público.",
+      "usuario": "Moradores, a associação de bairro e os alunos que organizam mutirões.",
+      "ganho": "O trabalho dela fica visível e ela consegue mostrar para a prefeitura o que já foi feito.",
+      "continua": "A associação de moradores fica com a senha e alimenta o mural. O site é gratuito, não tem custo mensal.",
+      "indicador": "número de ações cadastradas por moradores diferentes em 4 semanas"
+    },
+    "ods": [],
+    "campos": [
+      {
+        "rotulo": "Título da ação",
+        "tipo": "texto"
+      },
+      {
+        "rotulo": "Categoria",
+        "tipo": "lista",
+        "opcoes": "Ambiental, Social, Educação, Saúde"
+      },
+      {
+        "rotulo": "Local",
+        "tipo": "texto"
+      },
+      {
+        "rotulo": "Quantas pessoas participaram",
+        "tipo": "numero"
+      },
+      {
+        "rotulo": "O que foi feito",
+        "tipo": "longo"
+      }
+    ],
+    "passos": {
+      "1": true,
+      "2": false
+    },
+    "teste": {},
+    "entrega": {}
+  }
+}

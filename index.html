@@ -760,6 +760,24 @@ function gravarFichas(lista){
           <div class="codigo-topo"><span class="codigo-nome">resumo-do-projeto.txt</span><button class="copiar" type="button">Copiar</button></div>
           <pre id="resumoFinal">carregando...</pre>
         </div>
+
+        <div style="max-width:68ch; display:flex; flex-direction:column; gap:14px; margin-top:28px;">
+          <h3>Ficha de uso da oficina</h3>
+          <p>Escreva o código que o professor entregou para a sua equipe e baixe a ficha. Ela guarda o que vocês preencheram e por quais etapas passaram. Entregue junto com o link do site.</p>
+          <p style="color:var(--ink-3); font-size:.84rem;">A ficha não tem o nome de ninguém, só o código da equipe. Nada é enviado pela internet: o arquivo é gerado aqui e fica no seu aparelho até você entregar.</p>
+          <div class="acoes" style="flex-wrap:wrap; gap:10px; align-items:flex-end;">
+            <label style="display:flex; flex-direction:column; gap:4px; font-size:.84rem;">
+              Código da equipe
+              <input type="text" id="codEquipe" maxlength="24" autocomplete="off" placeholder="ex.: E03" style="min-width:140px;">
+            </label>
+            <label style="display:flex; flex-direction:column; gap:4px; font-size:.84rem;">
+              Turma
+              <input type="text" id="codTurma" maxlength="24" autocomplete="off" placeholder="ex.: 2A" style="min-width:120px;">
+            </label>
+            <button class="btn" type="button" id="baixarFicha">Baixar a ficha</button>
+          </div>
+          <span class="aviso-vivo" id="avisoFicha"></span>
+        </div>
       </div>
     </section>
 

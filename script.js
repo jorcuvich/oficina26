@@ -24,6 +24,16 @@ var PADRAO = {
     {rotulo:"O que foi feito", tipo:"longo"}
   ]
 };
+var REGISTRO_PADRAO = {
+  equipe:"", turma:"",
+  inicio:"", fim:"", dias:[],
+  copias:{}, copiasEm:{},
+  passosEm:{},
+  zip:0, zipEm:[],
+  socorro:{}
+};
+PADRAO.registro = JSON.parse(JSON.stringify(REGISTRO_PADRAO));
+
 var E = JSON.parse(JSON.stringify(PADRAO));
 
 function carregar(){
@@ -38,13 +48,54 @@ function carregar(){
       E.ods     = Array.isArray(salvo.ods) ? salvo.ods : [];
       if(salvo.canvas) for(var k in salvo.canvas) E.canvas[k] = salvo.canvas[k];
       if(Array.isArray(salvo.campos) && salvo.campos.length) E.campos = salvo.campos;
+      if(salvo.registro && typeof salvo.registro === "object"){
+        for(var r in REGISTRO_PADRAO){
+          if(salvo.registro[r] !== undefined) E.registro[r] = salvo.registro[r];
+        }
+      }
     }
   }catch(e){ /* navegador sem storage: segue com o exemplo */ }
 }
+
+/* ============ registro de uso ============
+   Conta o que o aluno faz na página, para que o professor possa exportar
+   depois. Nada sai do navegador sozinho: só o botão de exportar gera arquivo. */
+function reg(){
+  if(!E.registro || typeof E.registro !== "object"){
+    E.registro = JSON.parse(JSON.stringify(REGISTRO_PADRAO));
+  }
+  return E.registro;
+}
+function agora(){ return new Date().toISOString(); }
+function toque(){
+  var r = reg(), t = agora(), dia = t.slice(0,10);
+  if(!r.inicio) r.inicio = t;
+  r.fim = t;
+  if(!Array.isArray(r.dias)) r.dias = [];
+  if(r.dias.indexOf(dia) === -1) r.dias.push(dia);
+}
+function contar(grupo, chave, comData){
+  var r = reg();
+  if(!r[grupo] || typeof r[grupo] !== "object") r[grupo] = {};
+  r[grupo][chave] = (r[grupo][chave] || 0) + 1;
+  if(comData){
+    if(!r[comData] || typeof r[comData] !== "object") r[comData] = {};
+    if(!Array.isArray(r[comData][chave])) r[comData][chave] = [];
+    if(r[comData][chave].length < 200) r[comData][chave].push(agora());
+  }
+  salvar();
+}
+
 function salvar(){
-  try{ localStorage.setItem(CHAVE, JSON.stringify(E)); }catch(e){}
+  try{
+    toque();
+    localStorage.setItem(CHAVE, JSON.stringify(E));
+  }catch(e){}
 }
 carregar();
+/* Grava já na abertura, para que a data do primeiro acesso e os dias de uso
+   fiquem registrados mesmo que o aluno só leia a página e não clique em nada. */
+salvar();
 
 /* ============ utilidades ============ */
 function $(s,c){ return (c||document).querySelector(s); }
@@ -876,6 +927,7 @@ document.addEventListener("click", function(ev){
   if(!btn) return;
   var pre = btn.closest(".codigo").querySelector("pre");
   var texto = pre.textContent;
+  if(pre.id) contar("copias", pre.id, "copiasEm");
   function ok(){
     var antes = btn.textContent;
     btn.textContent = "Copiado";
@@ -900,6 +952,10 @@ function montarProgresso(){
     chk.checked = !!E.passos[n];
     chk.addEventListener("change", function(){
       E.passos[n] = chk.checked;
+      var r = reg();
+      if(!r.passosEm || typeof r.passosEm !== "object") r.passosEm = {};
+      if(chk.checked){ if(!r.passosEm[n]) r.passosEm[n] = agora(); }
+      else { delete r.passosEm[n]; }
       salvar(); pintarProgresso();
     });
   });
@@ -1041,7 +1097,10 @@ function montarSocorro(){
     var b = document.createElement("button");
     b.type = "button"; b.textContent = e.s;
     b.setAttribute("aria-pressed", "false");
-    b.addEventListener("click", function(){ mostrar(i); });
+    b.addEventListener("click", function(){
+      contar("socorro", e.s);
+      mostrar(i);
+    });
     caixa.appendChild(b);
   });
   mostrar(0);
@@ -1211,6 +1270,11 @@ function ligarDownloads(){
 
   zipBtn.addEventListener("click", function(){
     try{
+      var r = reg();
+      r.zip = (r.zip || 0) + 1;
+      if(!Array.isArray(r.zipEm)) r.zipEm = [];
+      if(r.zipEm.length < 100) r.zipEm.push(agora());
+      salvar();
       baixar(montarZip(arquivosDoProjeto()), nomeBase + ".zip");
       piscar(saida, "Pronto. Procure na pasta Downloads e extraia.");
     }catch(erro){
@@ -1234,6 +1298,77 @@ function ligarDownloads(){
   });
 }
 
+/* ============ ficha de uso, para o professor ============
+   Gera um .json com o que foi preenchido e com a contagem de uso da página.
+   Não contém nome de ninguém: o aluno escreve só o código da equipe que o
+   professor entregou. O arquivo só existe quando o aluno clica no botão. */
+function fichaDeUso(){
+  var r = reg();
+  return {
+    formato: "oficina-de-impacto/ficha-de-uso/1",
+    geradoEm: agora(),
+    equipe: r.equipe || "",
+    turma: r.turma || "",
+    uso: {
+      inicio: r.inicio || "",
+      fim: r.fim || "",
+      dias: r.dias || [],
+      copias: r.copias || {},
+      copiasEm: r.copiasEm || {},
+      passosEm: r.passosEm || {},
+      zip: r.zip || 0,
+      zipEm: r.zipEm || [],
+      socorro: r.socorro || {}
+    },
+    projeto: {
+      canvas: E.canvas,
+      ods: E.ods,
+      campos: E.campos,
+      passos: E.passos,
+      teste: E.teste,
+      entrega: E.entrega
+    }
+  };
+}
+
+function ligarFicha(){
+  var campoEquipe = $("#codEquipe"), campoTurma = $("#codTurma");
+  var botao = $("#baixarFicha"), saida = $("#avisoFicha");
+  if(!botao) return;
+
+  if(campoEquipe){
+    campoEquipe.value = reg().equipe || "";
+    campoEquipe.addEventListener("input", function(){
+      reg().equipe = campoEquipe.value.trim().slice(0, 24);
+      salvar();
+    });
+  }
+  if(campoTurma){
+    campoTurma.value = reg().turma || "";
+    campoTurma.addEventListener("input", function(){
+      reg().turma = campoTurma.value.trim().slice(0, 24);
+      salvar();
+    });
+  }
+
+  botao.addEventListener("click", function(){
+    var r = reg();
+    if(!r.equipe){
+      piscar(saida, "Escreva o código da equipe antes de baixar.");
+      if(campoEquipe) campoEquipe.focus();
+      return;
+    }
+    try{
+      var nome = "ficha-" + slug(r.equipe).toLowerCase() + ".json";
+      var texto = JSON.stringify(fichaDeUso(), null, 2);
+      baixar(new Blob([texto], {type:"application/json;charset=utf-8"}), nome);
+      piscar(saida, "Baixado como " + nome + ". Entregue este arquivo junto com o link do site.");
+    }catch(erro){
+      piscar(saida, "Seu navegador bloqueou o download. Avise o professor.");
+    }
+  });
+}
+
 /* ============ partida ============ */
 montarOds();
 montarCanvas();
@@ -1246,6 +1381,7 @@ montarSocorro();
 montarNavegacao();
 montarTema();
 ligarDownloads();
+ligarFicha();
 atualizarTextos();
 
 $("#limparCanvas").addEventListener("click", function(){
@@ -1267,6 +1403,8 @@ $("#recomecar").addEventListener("click", function(){
   montarCanvas(); montarOds(); montarCampos(); montarProgresso();
   montarChecklist("#listaTeste", ITENS_TESTE, "teste");
   montarChecklist("#listaEntrega", ITENS_ENTREGA, "entrega");
+  if($("#codEquipe")) $("#codEquipe").value = "";
+  if($("#codTurma")) $("#codTurma").value = "";
   atualizarTextos();
   window.scrollTo({top:0, behavior:"smooth"});
 });
